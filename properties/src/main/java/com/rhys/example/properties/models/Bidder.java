@@ -1,14 +1,15 @@
-package com.rhys.example.properties;
+package com.rhys.example.properties.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.rhys.example.properties.models.Enquiery;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "bidders")
+public class Bidder {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,17 +22,16 @@ public class User {
     private String name;
 
     @JsonIgnore
-    @OneToMany(mappedBy="user", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy="bidder", fetch = FetchType.LAZY)
     private List<Enquiery> enquieries;
 
-    public User(Long id, String email, String name) {
-        this.id = id;
+    public Bidder(String email, String name) {
         this.email = email;
         this.name = name;
         this.enquieries = new ArrayList<>();
     }
 
-    public User() {
+    public Bidder() {
     }
 
     public Long getId() {
@@ -60,6 +60,10 @@ public class User {
 
     public List<Enquiery> getEnquieries() {
         return enquieries;
+    }
+
+    public void setEnquieries(List<Enquiery> enquieries) {
+        this.enquieries = enquieries;
     }
 
     public void addEnquiery(Enquiery enquiery) {

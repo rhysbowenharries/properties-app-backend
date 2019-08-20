@@ -1,11 +1,6 @@
-package com.rhys.example.properties;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+package com.rhys.example.properties.models;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "enquieries")
@@ -17,19 +12,18 @@ public class Enquiery {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable=false)
-    private User user;
+    @JoinColumn(name = "bidder_id", nullable=false)
+    private Bidder bidder;
 
     @Column
-    private LocalDate datePosted;
+    private String datePosted;
 
     @ManyToOne
     @JoinColumn(name = "property_id", nullable=false)
     private Property property;
 
-    public Enquiery(Long id, User user, LocalDate datePosted, Property property) {
-        this.id = id;
-        this.user = user;
+    public Enquiery(Bidder user, String datePosted, Property property) {
+        this.bidder = user;
         this.datePosted = datePosted;
         this.property = property;
     }
@@ -45,11 +39,11 @@ public class Enquiery {
         this.id = id;
     }
 
-    public LocalDate getDatePosted() {
+    public String getDatePosted() {
         return datePosted;
     }
 
-    public void setDatePosted(LocalDate datePosted) {
+    public void setDatePosted(String datePosted) {
         this.datePosted = datePosted;
     }
 
@@ -61,12 +55,12 @@ public class Enquiery {
         this.property = property;
     }
 
-    public User getUser() {
-        return user;
+    public Bidder getUser() {
+        return bidder;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(Bidder user) {
+        this.bidder = user;
     }
 
 }

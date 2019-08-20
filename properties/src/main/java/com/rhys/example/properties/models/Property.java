@@ -1,6 +1,7 @@
-package com.rhys.example.properties;
+package com.rhys.example.properties.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.rhys.example.properties.models.Enquiery;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -29,19 +30,25 @@ public class Property {
     private String mainDescription;
 
     @Column
-    private LocalDate dateAdded;
+    private String dateAdded;
 
     @Column
     private String image;
 
-    public Property(Long id, String titleDescription, String address, String mainDescription, LocalDate dateAdded, String image) {
-        this.id = id;
+    @Column
+    private String price;
+
+    public Property(String titleDescription, String address, String mainDescription, String dateAdded, String image, String price) {
         this.titleDescription = titleDescription;
         this.address = address;
         this.mainDescription = mainDescription;
         this.dateAdded = dateAdded;
         this.image = image;
+        this.price = price;
         this.enquieries = new ArrayList<>();
+    }
+
+    public Property() {
     }
 
     public Long getId() {
@@ -50,6 +57,10 @@ public class Property {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setEnquieries(List<Enquiery> enquieries) {
+        this.enquieries = enquieries;
     }
 
     public String getTitleDescription() {
@@ -76,11 +87,11 @@ public class Property {
         this.mainDescription = mainDescription;
     }
 
-    public LocalDate getDateAdded() {
+    public String getDateAdded() {
         return dateAdded;
     }
 
-    public void setDateAdded(LocalDate dateAdded) {
+    public void setDateAdded(String dateAdded) {
         this.dateAdded = dateAdded;
     }
 
@@ -98,5 +109,13 @@ public class Property {
 
     public void addEnquiery(Enquiery enquiery) {
         this.enquieries.add(enquiery);
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 }
