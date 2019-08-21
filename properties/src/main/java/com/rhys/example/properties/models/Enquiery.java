@@ -22,8 +22,8 @@ public class Enquiery {
     @JoinColumn(name = "property_id", nullable=false)
     private Property property;
 
-    public Enquiery(Bidder user, String datePosted, Property property) {
-        this.bidder = user;
+    public Enquiery(Bidder bidder, String datePosted, Property property) {
+        this.bidder = bidder;
         this.datePosted = datePosted;
         this.property = property;
     }
@@ -55,12 +55,12 @@ public class Enquiery {
         this.property = property;
     }
 
-    public Bidder getUser() {
+    public Bidder getBidder() {
         return bidder;
     }
 
-    public void setUser(Bidder user) {
-        this.bidder = user;
+    public void setBidder(Bidder bidder) {
+        this.bidder = bidder;
     }
 
 }

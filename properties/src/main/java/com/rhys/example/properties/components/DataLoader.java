@@ -44,10 +44,10 @@ public class DataLoader implements ApplicationRunner {
                 "12-03-2019", "front of houseImage", "Guide Price £125,000");
         propertyRepository.save(property1);
 
-        Property property2 = new Property("Studio flat for sale", "Flat 1, 53 Station Road, Deganwy, Conwy, LL31", "bla bla bla bla bla", "19-04-2018", "Image3", "£90,000 ONO");
+        Property property2 = new Property("Studio flat for sale", "Flat 1, 53 Station Road, Deganwy, Conwy, LL31", "Yaga are pleased to present this 1 bedroom flat to market. Close to the town centre and on a bus route, makes this property a must view. This property is ready to move into and offers spacious living in a secure building. In brief, the property comp...", "19-04-2018", "Image3", "£90,000 ONO");
         propertyRepository.save(property2);
 
-        Property property3 = new Property("One bedroom beach side shack", "1 Beach view walk, Beach Rd, BB12 1aq", "Lovely", "12-3-2018", "picture here", "Offers above £1,000,000");
+        Property property3 = new Property("One bedroom beach side shack", "1 Beach view walk, Beach Rd, BB12 1aq", "This spacious semi detached bungalow is situated in a quiet cul-de-sac location, convenient for local schools. There is excellent....", "12-3-2018", "picture here", "Offers above £1,000,000");
         propertyRepository.save(property3);
 
         Enquiery enquiery1 = new Enquiery(bidder1, "12-04-2019", property1);
@@ -61,6 +61,7 @@ public class DataLoader implements ApplicationRunner {
 
         Enquiery enquiery4 = new Enquiery(bidder3, "19-9-2019", property2);
         enquieryRepository.save(enquiery4);
+
 
     }
 }
